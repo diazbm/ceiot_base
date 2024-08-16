@@ -59,10 +59,10 @@ static void http_get_task(void *pvParameters)
     bmp280_t dev;
     memset(&dev, 0, sizeof(bmp280_t));
 
-    ESP_LOGI(TAG, "Initializing sensor BMP280...")
+    ESP_LOGI(TAG, "Initializing sensor BMP280...");
     ESP_ERROR_CHECK(bmp280_init_desc(&dev, BMP280_I2C_ADDRESS_0, 0, SDA_GPIO, SCL_GPIO));
     ESP_ERROR_CHECK(bmp280_init(&dev, &params));
-    ESP_LOGI(TAG, "Sensor BM280 successfully init...")   
+    ESP_LOGI(TAG, "Sensor BM280 successfully init...");  
 
     bool bme280p = dev.id == BME280_CHIP_ID;
     ESP_LOGI(TAG, "BMP280: found %s\n", bme280p ? "BME280" : "BMP280");
