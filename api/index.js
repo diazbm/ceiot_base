@@ -104,11 +104,23 @@ app.get('/term/device/:id', function (req, res) {
 });
 
 app.get('/measurement', async (req,res) => {
-    res.send(await getMeasurements());
+    try {
+        res.send(await getMeasurements());
+        console.log("getting measurement successfully from database")
+    } catch (error) {
+        console.log("error getting measurement from database", error);
+    }
+
 });
 
 app.get('/device', function(req,res) {
-    res.send( db.public.many("SELECT * FROM devices") );
+    try {
+        res.send( db.public.many("SELECT * FROM devices") );
+        console.log("getting devices successfully from database")
+    } catch (error) {
+        console.log("error getting devices from database", error); 
+    }
+
 });
 
 startDatabase().then(async() => {
@@ -122,14 +134,19 @@ startDatabase().then(async() => {
     await insertMeasurement({id:'01', t:'17', h:'77'});
     console.log("mongo measurement database Up");
 
-    db.public.none("CREATE TABLE devices (device_id VARCHAR, name VARCHAR, key VARCHAR)");
-    db.public.none("INSERT INTO devices VALUES ('00', 'Fake Device 00', '123456')");
-    db.public.none("INSERT INTO devices VALUES ('01', 'Fake Device 01', '234567')");
-    db.public.none("CREATE TABLE users (user_id VARCHAR, name VARCHAR, key VARCHAR)");
-    db.public.none("INSERT INTO users VALUES ('1','Ana','admin123')");
-    db.public.none("INSERT INTO users VALUES ('2','Beto','user123')");
+    try {
+        db.public.none("CREATE TABLE devices (device_id VARCHAR, name VARCHAR, key VARCHAR)");
+        db.public.none("INSERT INTO devices VALUES ('00', 'Fake Device 00', '123456')");
+        db.public.none("INSERT INTO devices VALUES ('01', 'Fake Device 01', '234567')");
+        db.public.none("CREATE TABLE users (user_id VARCHAR, name VARCHAR, key VARCHAR)");
+        db.public.none("INSERT INTO users VALUES ('1','Ana','admin123')");
+        db.public.none("INSERT INTO users VALUES ('2','Beto','user123')");
+    
+        console.log("sql device database up");
+    } catch (error) {
+        console.log("error creating devices", error);
+    }
 
-    console.log("sql device database up");
 
     app.listen(PORT, () => {
         console.log(`Listening at ${PORT}`);

@@ -59,8 +59,10 @@ static void http_get_task(void *pvParameters)
     bmp280_t dev;
     memset(&dev, 0, sizeof(bmp280_t));
 
+    ESP_LOGI(TAG, "Initializing sensor BMP280...");   
     ESP_ERROR_CHECK(bmp280_init_desc(&dev, BMP280_I2C_ADDRESS_0, 0, SDA_GPIO, SCL_GPIO));
     ESP_ERROR_CHECK(bmp280_init(&dev, &params));
+    ESP_LOGI(TAG, "Sensor BMP280 initialized successfully..."); 
 
     bool bme280p = dev.id == BME280_CHIP_ID;
     ESP_LOGI(TAG, "BMP280: found %s\n", bme280p ? "BME280" : "BMP280");
@@ -69,6 +71,7 @@ static void http_get_task(void *pvParameters)
 
 
     while(1) {
+        ESP_LOGI("Capturing data...");
         if (bmp280_read_float(&dev, &temperature, &pressure, &humidity) != ESP_OK) {
             ESP_LOGI(TAG, "Temperature/pressure reading failed\n");
         } else {
