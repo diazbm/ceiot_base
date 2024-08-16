@@ -71,7 +71,7 @@ static void http_get_task(void *pvParameters)
 
 
     while(1) {
-        ESP_LOGI("Capturing data...");
+        ESP_LOGI(TAG, "Capturing data...");
         if (bmp280_read_float(&dev, &temperature, &pressure, &humidity) != ESP_OK) {
             ESP_LOGI(TAG, "Temperature/pressure reading failed\n");
         } else {
