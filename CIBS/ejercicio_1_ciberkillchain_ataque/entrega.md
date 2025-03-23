@@ -2,9 +2,9 @@
 
 ## Alumno
 
-Mariángel Díaz Balza
-Universidad de Buenos Aires
-Especialización en Internet de las Cosas
+Mariángel Díaz Balza <br>
+Universidad de Buenos Aires<br>
+Especialización en Internet de las Cosas<br>
 
 ## Sistema víctima
 
