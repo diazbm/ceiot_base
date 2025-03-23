@@ -20,11 +20,11 @@ A continuación se muestra un diagrama de las distintas capas que conforman la a
 
 Comprometer el sistema de gestión energética, deshabilitar los controles de climatización e iluminación y exigir un rescate para restaurar el servicio.
 
-### 1️⃣ Reconnaissance (Reconocimiento)
+## 1️⃣ Reconnaissance (Reconocimiento)
 
 🔍 **Objetivo:** Obtener información sobre la infraestructura del sistema, dispositivos IoT, APIs expuestas, credenciales y puntos de acceso.
 
-#### 🔹 Estrategias:
+### 🔹 Estrategias:
 
 - Busco en **GitHub, GitLab, Bitbucket** credenciales y configuraciones expuestas, si un programador olvidó borrar su clave de acceso, yo podría usarla.(**CWE-200: Exposición de Información Sensible**).
 
@@ -46,11 +46,11 @@ shodan search "title:'Open MQTT Broker'"  <br>
 
 <img src="/ejercicio_1_ciberkillchain_ataque/imagenes/suscripcion_topics.png>
 
-### Weaponization (Preparación del Ataque)
+## Weaponization (Preparación del Ataque)
 
 🛠 **Objetivo:** Crear exploits, malware y técnicas de persistencia antes de la entrega.
 
-#### 🔹 Estrategias:
+### 🔹 Estrategias:
 
 - Creo un **firmware malicioso para ESP32** (**CWE-494: Descarga de código sin verificación de integridad**).
 
@@ -58,9 +58,11 @@ shodan search "title:'Open MQTT Broker'"  <br>
 
 - Inyecto comandos en la API (**CWE-77: Neutralización incorrecta de elementos especiales utilizados en un comando ('Inyección de comando')**)
 
-### **3️⃣ Delivery (Entrega del Ataque)**
+## **3️⃣ Delivery (Entrega del Ataque)**
 
 📩 **Objetivo:** Introducir el malware en la red de la víctima. 
+
+### 🔹 Estrategias:
 
 - Capturo tráfico con **Wireshark** para robar credenciales.
 
@@ -74,11 +76,11 @@ shodan search "title:'Open MQTT Broker'"  <br>
 - Hago una inyección de prompt para que la IA tome decisiones incorrectas.
 
 
-### 4️⃣ Exploitation (Ejecución del Ataque)  
+## 4️⃣ Exploitation (Ejecución del Ataque)  
 
 💥 **Objetivo:** Aprovechar vulnerabilidades para comprometer el sistema.  
 
-#### 🔹 Estrategias:
+### 🔹 Estrategias:
 
 - Ejecuto el ramsonware y cifro archivos críticos del backend.
 
@@ -88,11 +90,11 @@ shodan search "title:'Open MQTT Broker'"  <br>
 
 - Sobrecargo el tráfico MQTT con mensajes falsos, mando muchos mensajes basura para bloquear el sistema.
 
-### 5️⃣ Installation (Persistencia en el Sistema)  
+## 5️⃣ Installation (Persistencia en el Sistema)  
 
 🔗 **Objetivo:** Asegurar acceso continuo y evitar detección.  
 
-#### 🔹 Estrategias:
+### 🔹 Estrategias:
 
 - Para mantener saboteados los dispositivos bloqueo la posibilidad de actualizaciones, así evito que puedan impedir que puedan instalar una versión limpia del sistema.
 
@@ -100,7 +102,7 @@ shodan search "title:'Open MQTT Broker'"  <br>
 
 - Armo un código alternativo para mantener la manipulación del sistema.
 
-### 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)  
+## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)  
 🎮 **Objetivo:** Controlar el sistema comprometido de manera remota.  
 
 ### 🔹 Estrategias:
