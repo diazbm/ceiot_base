@@ -18,7 +18,7 @@ A continuación se muestra un diagrama de las distintas capas que conforman la a
 
 Comprometer el sistema de gestión energética, deshabilitar los controles de climatización e iluminación y exigir un rescate para restaurar el servicio.
 
-### <img src="/CIBS/ejercicio_1_ciberkillchain_ataque/imagenes/reconnaissance.png" Reconnaissance>
+### <img src="/CIBS/ejercicio_1_ciberkillchain_ataque/imagenes/reconnaissance.png" "Reconnaissance">
 
 
 - Investigo si hay algún ejemplo en alguna documentación pública, algún video en youtube sobre sistemas similares. Busco en internet, en github si se les escapó algo a los creadores de la solución (CWE-200: Exposición de Información Sensible).
