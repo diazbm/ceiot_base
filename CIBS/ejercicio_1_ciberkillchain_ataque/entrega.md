@@ -43,7 +43,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 - Intento suscribirme a tópicos MQTT sin autenticación con **mosquitto_sub** para escuchar tráfico en la red (espiar mensajes entre dispositivos IoT) (**CWE-923: Restricción inadecuada del canal de comunicación a los puntos finales previstos**).<br>
 
-<img src="/ejercicio_1_ciberkillchain_ataque/imagenes/suscripcion_topics.png">
+    mosquitto_sub -h broker.mqtt.com -t "#" <br>
 
 ## 2️⃣ Weaponization (Preparación del Ataque)
 
