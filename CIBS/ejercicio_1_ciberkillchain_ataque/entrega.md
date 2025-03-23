@@ -63,14 +63,13 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ### 🔹 Estrategias:
 
-- Capturo tráfico con **Wireshark** para robar credenciales.
+- Capturo tráfico con **Wireshark** para robar credenciales. (**CWE-319: Transmisión de información confidencial en texto claro**)
 
-- Configuro una red Wi-Fi falsa para engañar a los dispositivos para que se conecten y robar información para interceptar tráfico. 
+- Configuro una red Wi-Fi falsa para engañar a los dispositivos para que se conecten y robar información para interceptar tráfico (**CWE-346: Error de validación de origen**).
 
-- Subo el firmware malicioso mediante la API vulnerable (		
-**CWE-89: Inyección de SQL**)
+- Subo el firmware malicioso mediante la API vulnerable (**CWE-89: Inyección de SQL**)
 
-- Distribuyo archivos PDF infectados a los e-mails de los administradores y pican el anzuelo, entran en una página falsa que creé.
+- Distribuyo archivos PDF infectados a los e-mails de los administradores y pican el anzuelo, entran en una página falsa que creé (**CWE-601: Redirección de URL a un sitio no confiable ("Redirección abierta")**).
 
 - Hago una inyección de prompt para que la IA tome decisiones incorrectas.
 
@@ -81,7 +80,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ### 🔹 Estrategias:
 
-- Ejecuto el ramsonware y cifro archivos críticos del backend.
+- Ejecuto el ramsonware y cifro archivos críticos del backend (**CWE-922: Almacenamiento inseguro de información confidencial**).
 
 - Elimino los respaldos accesibles desde el sistema.
 
@@ -99,14 +98,14 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 - Cambio las credenciales de administración para evitar recuperación.
 
-- Armo un código alternativo para mantener la manipulación del sistema.
+- Armo un código alternativo para mantener la manipulación del sistema (**CWE-912: Funcionalidad oculta**).
 
 ## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)  
 🎮 **Objetivo:** Controlar el sistema comprometido de manera remota.  
 
 ### 🔹 Estrategias:
 
-- Implemento un **DNS Tunneling** para mantener comunicación encubierta.  
+- Implemento un **DNS Tunneling** para mantener comunicación encubierta (**CWE-912: Funcionalidad oculta**) 
 
 - Capturo eventos en el backend que indiquen intentos de mitigación.  
 
