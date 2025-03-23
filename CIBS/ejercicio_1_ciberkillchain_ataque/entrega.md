@@ -2,9 +2,9 @@
 
 ## Alumno
 
-\e[34m**Mariángel Díaz Balza**\e[0m <br>
-\e[34m**Universidad de Buenos Aires**\e[0m<br>
-\e[34m**Especialización en Internet de las Cosas**\e[0m<br><br>
+<span style="color: blue;">**Mariángel Díaz Balza**</span><br>
+<span style="color: blue;">**Universidad de Buenos Aires**</span><br>
+<span style="color: blue;">**Especialización en Internet de las Cosas**</span><br>
 
 ## Sistema víctima
 
