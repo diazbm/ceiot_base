@@ -1,10 +1,10 @@
 # 💥 Cyber Kill Chain – Sabotaje y Extorsión de Sistema de Gestión Energética
 
 ## Alumno
-
-<span style="color: blue;">Mariángel Díaz Balza</span><br>
-<span style="color: blue;">Universidad de Buenos Aires</span><br>
-<span style="color: blue;">Especialización en Internet de las Cosas</span><br>
+<
+👤 **Mariángel Díaz Balza**<br>
+🏫 **Universidad de Buenos Aires**<br>
+📲 **Especialización en Internet de las Cosas**<br>
 
 ## Sistema víctima
 
