@@ -20,25 +20,28 @@ A continuación se muestra un diagrama de las distintas capas que conforman la a
 
 Comprometer el sistema de gestión energética, deshabilitar los controles de climatización e iluminación y exigir un rescate para restaurar el servicio.
 
-### <img src="/CIBS/ejercicio_1_ciberkillchain_ataque/imagenes/reconnaissance.png"> Reconnaissance (Reconocimiento)
+### 1️⃣ Reconnaissance (Reconocimiento)
 
 🔍 **Objetivo:** Obtener información sobre la infraestructura del sistema, dispositivos IoT, APIs expuestas, credenciales y puntos de acceso.
 
 #### 🔹 Estrategias:
 
-- Investigo si hay algún ejemplo en alguna documentación pública. Busco en internet, en github si se les escapó algo a los creadores de la solución (**CWE-200: Exposición de Información Sensible**).
+- Busco en **GitHub, GitLab, Bitbucket** credenciales y configuraciones expuestas, si un programador olvidó borrar su clave de acceso, yo podría usarla.(**CWE-200: Exposición de Información Sensible**).
 
-- Busco si en los comentarios del html expuesto hay información importante (**CWE-615: Inclusión de información confidencial en los comentarios del código fuente**).
+- Busco información importante en el html del front (**CWE-615: Inclusión de información confidencial en los comentarios del código fuente**).
 
 - Busco en github o en el código base credenciales embebidas (**CWE-798: Uso de credenciales codificadas**).
 
 - Envío correos con archivos adjuntos maliciosos o enlaces a páginas falsas que capturen credenciales de acceso (**CWE-601: Redirección de URL a un sitio no confiable ("Redirección abierta")**).
 
-- Investigo si hay configuraciones expuestas en archivos .env, .json o .yaml (**CWE-312: Almacenamiento de información confidencial en texto plano**).
+- Investigo y consigo configuraciones expuestas en archivos .json (**CWE-312: Almacenamiento de información confidencial en texto plano**). 
 
-- Uso Shodan para identificar servidores MQTT, para determinar la ubicación y direcciones IP de dispositivos (**CWE-829: Inclusión de funcionalidad de una esfera de control no confiable**). Verifico si los dispositivos IoT se conectan a redes sin validación estricta.
+- Uso Shodan (es un buscador para encontrar dispositivos conectados a Internet) para identificar servidores MQTT, para determinar la ubicación y direcciones IP de dispositivos (**CWE-829: Inclusión de funcionalidad de una esfera de control no confiable**). Verifico si los dispositivos IoT se conectan a redes sin validación estricta.<br>
 
-- Intento suscribirme a tópicos MQTT sin autenticación con **mosquitto_sub** para escuchar tráfico en la red (**CWE-923: Restricción inadecuada del canal de comunicación a los puntos finales previstos**).
+shodan search "port:1883 MQTT"  <br>
+shodan search "title:'Open MQTT Broker'"  <br>
+
+- Intento suscribirme a tópicos MQTT sin autenticación con **mosquitto_sub** para escuchar tráfico en la red (espiar mensajes entre dispositivos IoT) (**CWE-923: Restricción inadecuada del canal de comunicación a los puntos finales previstos**).
 
 - 
 
@@ -52,6 +55,79 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 - Creo un **firmware malicioso para ESP32** (**CWE-494: Descarga de código sin verificación de integridad**).
 
-Prompt injection
+- Diseño un ransomware que cifre archivos del backend y bloquee configuraciones. Con este ransomware bloquearía el acceso al sistema hasta que paguen un rescate.
+
+- Inyecto comandos en la API (**CWE-77: Neutralización incorrecta de elementos especiales utilizados en un comando ('Inyección de comando')**)
+
+### **3️⃣ Delivery (Entrega del Ataque)**
+
+📩 **Objetivo:** Introducir el malware en la red de la víctima. 
+
+- Capturo tráfico con **Wireshark** para robar credenciales.
+
+- Configuro una red Wi-Fi falsa para engañar a los dispositivos para que se conecten y robar información para interceptar tráfico. 
+
+- Subo el firmware malicioso mediante la API vulnerable (		
+**CWE-89: Inyección de SQL**)
+
+- Distribuyo archivos PDF infectados a los e-mails de los administradores y pican el anzuelo, entran en una página falsa que creé.
+
+- Hago una inyección de prompt para que la IA tome decisiones incorrectas.
+
+
+### 4️⃣ Exploitation (Ejecución del Ataque)  
+
+💥 **Objetivo:** Aprovechar vulnerabilidades para comprometer el sistema.  
+
+#### 🔹 Estrategias:
+
+- Ejecuto el ramsonware y cifro archivos críticos del backend.
+
+- Elimino los respaldos accesibles desde el sistema.
+
+- Manipulo los sensores y actuadores a través de comandos falsos y altero la base de datos para ocultar mi actividad.  
+
+- Sobrecargo el tráfico MQTT con mensajes falsos, mando muchos mensajes basura para bloquear el sistema.
+
+### 5️⃣ Installation (Persistencia en el Sistema)  
+
+🔗 **Objetivo:** Asegurar acceso continuo y evitar detección.  
+
+#### 🔹 Estrategias:
+
+- Para mantener saboteados los dispositivos bloqueo la posibilidad de actualizaciones, así evito que puedan impedir que puedan instalar una versión limpia del sistema.
+
+- Cambio las credenciales de administración para evitar recuperación.
+
+- Armo un código alternativo para mantener la manipulación del sistema.
+
+### 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)  
+🎮 **Objetivo:** Controlar el sistema comprometido de manera remota.  
+
+### 🔹 Estrategias:
+
+- Implemento un **DNS Tunneling** para mantener comunicación encubierta.  
+
+- Capturo eventos en el backend que indiquen intentos de mitigación.  
+
+- Implemento mecanismos de auto-reinstalación en caso de detección.  
+
+
+## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)  
+💰 **Objetivo:** Conseguir el pago del rescate y demostrar el control sobre el sistema.  
+
+### 🔹 Estrategias:
+
+- **Secuestro del Sistema**
+
+  - Bloqueo  la climatización e iluminación.  
+  - Envío mensaje a la interfaz de usuario indicando que el sistema está comprometido.  
+
+- **Prueba de Control**
+  - Le demuestro al dueño que tengo el control apagando y encendiendo luces o aire acondicionado.
+
+- **Extorsión Financiera**
+  - Exijo un pago en **Bitcoin** para restaurar el sistema.  
+  - Amenazo con borrar todo en caso de no recibir respuesta.  
 
 
