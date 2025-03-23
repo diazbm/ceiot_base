@@ -46,7 +46,7 @@ shodan search "title:'Open MQTT Broker'"  <br>
 
 <img src="/ejercicio_1_ciberkillchain_ataque/imagenes/suscripcion_topics.png>
 
-## Weaponization (Preparación del Ataque)
+## 2️⃣ Weaponization (Preparación del Ataque)
 
 🛠 **Objetivo:** Crear exploits, malware y técnicas de persistencia antes de la entrega.
 
