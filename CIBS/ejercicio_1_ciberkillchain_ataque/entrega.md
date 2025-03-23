@@ -1,4 +1,4 @@
-# 🛡️ Cyber Kill Chain – Sabotaje y Extorsión de Sistema de Gestión Energética
+# 💥 Cyber Kill Chain – Sabotaje y Extorsión de Sistema de Gestión Energética
 
 ## Alumno
 
