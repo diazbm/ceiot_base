@@ -43,9 +43,8 @@ shodan search "title:'Open MQTT Broker'"  <br>
 
 - Intento suscribirme a tópicos MQTT sin autenticación con **mosquitto_sub** para escuchar tráfico en la red (espiar mensajes entre dispositivos IoT) (**CWE-923: Restricción inadecuada del canal de comunicación a los puntos finales previstos**).
 
-- 
 
-<img src="/ejercicio_1_ciberkillchain_ataque/imagenes/suscripcion_topics.png">
+<img src="/ejercicio_1_ciberkillchain_ataque/imagenes/suscripcion_topics.png>
 
 ### Weaponization (Preparación del Ataque)
 
