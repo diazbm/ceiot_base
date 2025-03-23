@@ -36,15 +36,14 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 - Investigo y consigo configuraciones expuestas en archivos .json (**CWE-312: Almacenamiento de información confidencial en texto plano**). 
 
-- Uso Shodan (es un buscador para encontrar dispositivos conectados a Internet) para identificar servidores MQTT, para determinar la ubicación y direcciones IP de dispositivos (**CWE-829: Inclusión de funcionalidad de una esfera de control no confiable**). Verifico si los dispositivos IoT se conectan a redes sin validación estricta.<br>
+- Uso Shodan (es un buscador para encontrar dispositivos conectados a Internet) para identificar servidores MQTT, para determinar la ubicación y direcciones IP de dispositivos (**CWE-829: Inclusión de funcionalidad de una esfera de control no confiable**). Verifico si los dispositivos IoT se conectan a redes sin validación estricta.<br><br>
 
-shodan search "port:1883 MQTT"  <br>
-shodan search "title:'Open MQTT Broker'"  <br>
+    shodan search "port:1883 MQTT"  <br>
+    shodan search "title:'Open MQTT Broker'"  <br><br>
 
-- Intento suscribirme a tópicos MQTT sin autenticación con **mosquitto_sub** para escuchar tráfico en la red (espiar mensajes entre dispositivos IoT) (**CWE-923: Restricción inadecuada del canal de comunicación a los puntos finales previstos**).
+- Intento suscribirme a tópicos MQTT sin autenticación con **mosquitto_sub** para escuchar tráfico en la red (espiar mensajes entre dispositivos IoT) (**CWE-923: Restricción inadecuada del canal de comunicación a los puntos finales previstos**).<br>
 
-
-<img src="/ejercicio_1_ciberkillchain_ataque/imagenes/suscripcion_topics.png>
+<img src="/ejercicio_1_ciberkillchain_ataque/imagenes/suscripcion_topics.png">
 
 ## 2️⃣ Weaponization (Preparación del Ataque)
 
