@@ -7,11 +7,12 @@
 📲 **Especialización en Internet de las Cosas**<br>
 
 
-## Objetivo de la Defensa
+## Enunciado
 
-Se busca detectar de manera proactiva actividades maliciosas en cualquier fase del ataque y aplicar medidas básicas de mitigación adaptadas a recursos limitados. A continuación se detallan, en orden inverso al ataque, las medidas defensivas integradas con sus correspondientes códigos de MITRE ATT&CK tanto para **detección** como para **mitigación**.
+Desarrollar la defensa en función del ataque planteado en orden inverso, mencionar una medida de detección y una de mitigación, sólo lo más importante, considerar recursos limitados. No es una respuesta a un incidente, hay que detectar el ataque independientemente de la etapa.
 
 
+## Resolución
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)
 
