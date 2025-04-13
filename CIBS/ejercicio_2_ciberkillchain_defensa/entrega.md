@@ -75,7 +75,7 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 
 - **Medida de Mitigación:**
   - **Código:** **M1017 – Capacitación de usuarios**  https://attack.mitre.org/mitigations/M1017/#:~:text=Train%20users%20to%20be%20aware,techniques%20that%20involve%20user%20interaction <br>
-    **Descripción:** capacitar a los usuarios para que estén conscientes de intentos de acceso o manipulación por parte de un adversario, reduciendo el riesgo de éxito de spearphishing, ingeniería social u otras técnicas que dependen de la interacción del usuario​.
+    **Descripción:** capacitar a los usuarios para que estén conscientes de intentos de acceso o manipulación por parte de un adversario, reduciendo el riesgo de éxito de spearphishing, ingeniería social u otras técnicas que dependen de la interacción del usuario​, hacer constantemente pruebas de phishing sobre los usuarios en las cuales los que accedan a los sitios maliciosos de prueba tendrán que cambiar sus credenciales semanalmente y re-hacer las capacitaciones.
 
 
 
@@ -100,4 +100,4 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 
 - **Medida de Mitigación:**
   - **Código:** **M1056 – Pre-compromiso**  https://attack.mitre.org/mitigations/M1056/#:~:text=This%20category%20is%20used%20for,Reconnaissance%20and%20Resource%20Development%20techniques <br>
-    **Descripción:** dificultar el reconocimiento o el desarrollo de recursos por parte del adversario. Limitar la información expuesta públicamente y la superficie visible al atacante.
+    **Descripción:** dificultar el reconocimiento o el desarrollo de recursos por parte del adversario. Limitar la información expuesta públicamente y la superficie visible al atacante usando técnicas de obfuscado en el frontend, uso de server-side rendering, evitar usar local storage, implementar token csrf en todas las llamadas del cliente al servidor.
