@@ -22,7 +22,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ## 1️⃣ Reconnaissance (Reconocimiento)
 
-🔍 **Objetivo:** Obtener información sobre la infraestructura del sistema, dispositivos IoT, APIs expuestas, credenciales y puntos de acceso.
+🔍 **Objetivo:** obtener información sobre la infraestructura del sistema, dispositivos IoT, APIs expuestas, credenciales y puntos de acceso.
 
 ### 🔹 Estrategias:
 
@@ -35,7 +35,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ## 2️⃣ Weaponization (Preparación del Ataque)
 
-🛠 **Objetivo:** Peparar las herramientas del ataque aprovechando las vulnerabilidades encontradas.
+🛠 **Objetivo:** peparar las herramientas del ataque aprovechando las vulnerabilidades encontradas.
 
 ### 🔹 Estrategias:
 
@@ -56,7 +56,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ## **3️⃣ Delivery (Entrega del Ataque)**
 
-📩 **Objetivo:** Introducir de forma oculta los componentes maliciosos en la red de la víctima. 
+📩 **Objetivo:** introducir de forma oculta los componentes maliciosos en la red de la víctima. 
 
 ### 🔹 Estrategias:
 
@@ -69,7 +69,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ## 4️⃣ Exploitation (Ejecución del Ataque)  
 
-💥 **Objetivo:** Aprovechar vulnerabilidades para comprometer el sistema.  
+💥 **Objetivo:** aprovechar vulnerabilidades para comprometer el sistema.  
 
 ### 🔹 Estrategias:
 
@@ -87,14 +87,14 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ### 🔹 Estrategias:
 
-- Para mantener saboteados los dispositivos bloqueo la posibilidad de actualizaciones, así evito que puedan impedir que puedan instalar una versión limpia del sistema.
+- Para mantener saboteados los dispositivos bloqueo la posibilidad de actualizaciones, así evito que puedan instalar una versión limpia del sistema.
 
 - Cambio las credenciales de administración para evitar recuperación.
 
 - Armo un código alternativo para mantener la manipulación del sistema (**CWE-912: Funcionalidad oculta**).
 
 ## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)  
-🎮 **Objetivo:** Se mantiene el control remoto del sistema, incluso si la víctima intenta desconectarse de la red. 
+🎮 **Objetivo:** se mantiene el control remoto del sistema, incluso si la víctima intenta desconectarse de la red. 
 
 ### 🔹 Estrategias:
 
@@ -106,7 +106,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)  
-💰 **Objetivo:** Conseguir el pago del rescate y demostrar el control sobre el sistema.  
+💰 **Objetivo:** demostrar el control sobre el sistema y conseguir el pago del rescate.
 
 ### 🔹 Estrategias:
 
