@@ -1,10 +1,17 @@
 # 💥 Cyber Kill Chain Defensiva – Defensa para el Sistema de Gestión Energética
 
+## Alumno
+
+👤 **Mariángel Díaz Balza**<br>
+🏫 **Universidad de Buenos Aires**<br>
+📲 **Especialización en Internet de las Cosas**<br>
+
+
 ## Objetivo de la Defensa
 
 Se busca detectar de manera proactiva actividades maliciosas en cualquier fase del ataque y aplicar medidas básicas de mitigación adaptadas a recursos limitados. A continuación se detallan, en orden inverso al ataque, las medidas defensivas integradas con sus correspondientes códigos de MITRE ATT&CK tanto para **detección** como para **mitigación**.
 
----
+
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)
 
@@ -18,7 +25,7 @@ Se busca detectar de manera proactiva actividades maliciosas en cualquier fase d
     **Descripción:** establecer y reforzar políticas de respaldo de datos y configuraciones. Esta medida limita el impacto de la alteración o extorsión al asegurar la posibilidad de restaurar el sistema a un estado legítimo.  
     *(Medida que ayuda a minimizar el daño ante extorsión o sabotaje.)*
 
----
+
 
 ## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)
 
@@ -32,7 +39,7 @@ Se busca detectar de manera proactiva actividades maliciosas en cualquier fase d
     **Descripción:** implementar filtros en firewalls y dispositivos perimetrales para bloquear tráfico hacia dominios e IPs sospechosos, interrumpiendo comunicaciones de control remoto.  
     *(Mitigación orientada a interrumpir la comunicación no autorizada.)*
 
----
+
 
 ## 5️⃣ Installation (Persistencia en el Sistema)
 
@@ -45,7 +52,7 @@ Se busca detectar de manera proactiva actividades maliciosas en cualquier fase d
   - **Código:** **M1033 - Limitar la instalación de software**  https://attack.mitre.org/mitigations/M1033/#:~:text=Block%20users%20or%20groups%20from,installing%20unapproved%20software <br>
     **Descripción:** bloquear que usuarios o grupos instalen software no aprobado. Restringiendo la instalación a aplicaciones de confianza se dificulta que el adversario agregue herramientas de persistencia en los sistemas.
 
----
+
 
 ## 4️⃣ Exploitation (Ejecución del Ataque)
 
@@ -57,7 +64,7 @@ Se busca detectar de manera proactiva actividades maliciosas en cualquier fase d
   - **Código:** **M1050 - Protección contra exploits**  https://attack.mitre.org/mitigations/M1050/#:~:text=Exploit%20Protection <br>
     **Descripción:** usar capacidades de protección que detecten y bloqueen condiciones indicativas de que se está intentando explotar una vulnerabilidad de software​. 
 
----
+
 
 ## 3️⃣ Delivery (Entrega del Ataque)
 
@@ -69,7 +76,7 @@ Se busca detectar de manera proactiva actividades maliciosas en cualquier fase d
   - **Código:** **M1017 – Capacitación de usuarios**  https://attack.mitre.org/mitigations/M1017/#:~:text=Train%20users%20to%20be%20aware,techniques%20that%20involve%20user%20interaction <br>
     **Descripción:** capacitar a los usuarios para que estén conscientes de intentos de acceso o manipulación por parte de un adversario, reduciendo el riesgo de éxito de spearphishing, ingeniería social u otras técnicas que dependen de la interacción del usuario​.
 
----
+
 
 ## 2️⃣ Weaponization (Preparación del Ataque)
 
@@ -82,7 +89,7 @@ Se busca detectar de manera proactiva actividades maliciosas en cualquier fase d
   - **Código:** **M1049 – Antivirus/Antimalware**  https://attack.mitre.org/mitigations/M1049/#:~:text=Antivirus%2FAntimalware <br>
     **Descripción:** utilizar software antimalware para buscar mediante firmas o heurísticas la presencia de software malicioso. Las soluciones antivirus pueden detectar y poner en cuarentena archivos sospechosos automáticamente, impidiendo que malware ya preparado (weaponized) se ejecute en el sistema.
 
----
+
 
 ## 1️⃣ Reconnaissance (Reconocimiento)
 
