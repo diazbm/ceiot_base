@@ -106,7 +106,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)  
-💰 **Objetivo:** demostrar el control sobre el sistema y conseguir el pago del rescate.
+💰 **Objetivo:** demostrar control sobre el sistema y conseguir el pago del rescate.
 
 ### 🔹 Estrategias:
 
