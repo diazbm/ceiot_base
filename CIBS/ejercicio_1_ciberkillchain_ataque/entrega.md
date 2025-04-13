@@ -60,7 +60,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ### 🔹 Estrategias:
 
-- Capturo tráfico con **Wireshark** para interceptar comunicaciones y robar credenciales en texto claro. (**CWE-319: Transmisión de información confidencial en texto claro**)
+- Capturo tráfico con **Wireshark** para interceptar comunicaciones y robar credenciales en texto no cifrado. (**CWE-319: Transmisión de información confidencial en texto no cifrado**)
 
 - Configuro una red Wi-Fi falsa para engañar a los dispositivos IoT y facilitar la inserción del firmware malicioso, aprovechando vulnerabilidades en la validación de redes (**CWE-346: Error de validación de origen**).
 
