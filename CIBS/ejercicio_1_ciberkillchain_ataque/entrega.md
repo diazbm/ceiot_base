@@ -62,8 +62,6 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 - Capturo tráfico con **Wireshark** para interceptar comunicaciones y robar credenciales en texto claro. (**CWE-319: Transmisión de información confidencial en texto claro**)
 
-- Configuro una red Wi-Fi falsa para engañar a los dispositivos IoT y facilitar la inserción del firmware malicioso, aprovechando vulnerabilidades en la validación de redes (**CWE-346: Error de validación de origen**).
-
 - Subo el firmware malicioso a través de la API vulnerable y se envían correos electrónicos con archivos infectados a administradores, utilizando técnicas de redirección a páginas falsas (**CWE-601: Redirección de URL a un sitio no confiable ("Redirección abierta")**).
 
 - Inyecto comandos en el prompt de la API de OpenAI para modificar las decisiones automatizadas en favor del ataque.
