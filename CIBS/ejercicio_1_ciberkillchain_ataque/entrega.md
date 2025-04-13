@@ -26,52 +26,47 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ### 🔹 Estrategias:
 
-- Busco en **GitHub, GitLab, Bitbucket** credenciales y configuraciones expuestas, si un programador olvidó borrar su clave de acceso, yo podría usarla.(**CWE-200: Exposición de Información Sensible**).
+- Busco en repositorios públicos como **GitHub, GitLab y Bitbucket** para identificar credenciales y configuraciones expuestas. Se descubren sobre una API: endpoints, claves y parámetros críticos que permiten acceder a componentes sensibles del sistema. (**CWE-200: Exposición de Información Sensible**).
 
-- Busco información importante en el html del front (**CWE-615: Inclusión de información confidencial en los comentarios del código fuente**).
+- Analizo el código fuente del front-end, detectando metadatos y comentarios en el HTML que revelan información confidencial (**CWE-615: Inclusión de información confidencial en los comentarios del código fuente**).
 
-- Busco en github o en el código base credenciales embebidas (**CWE-798: Uso de credenciales codificadas**).
+- Uso Shodan (es un buscador para encontrar dispositivos conectados a Internet) para identificar servidores MQTT, para determinar la ubicación y direcciones IP de dispositivos (**CWE-829: Inclusión de funcionalidad de una esfera de control no confiable**). Detecto fallos en la sanitización y validación de entradas.
 
-- Envío correos con archivos adjuntos maliciosos o enlaces a páginas falsas que capturen credenciales de acceso (**CWE-601: Redirección de URL a un sitio no confiable ("Redirección abierta")**).
-
-- Investigo y consigo configuraciones expuestas en archivos .json (**CWE-312: Almacenamiento de información confidencial en texto plano**). 
-
-- Uso Shodan (es un buscador para encontrar dispositivos conectados a Internet) para identificar servidores MQTT, para determinar la ubicación y direcciones IP de dispositivos (**CWE-829: Inclusión de funcionalidad de una esfera de control no confiable**). Verifico si los dispositivos IoT se conectan a redes sin validación estricta.<br><br>
-
-    shodan search "port:1883 MQTT"  <br>
-    shodan search "title:'Open MQTT Broker'"  <br><br>
-
-- Intento suscribirme a tópicos MQTT sin autenticación con **mosquitto_sub** para escuchar tráfico en la red (espiar mensajes entre dispositivos IoT) (**CWE-923: Restricción inadecuada del canal de comunicación a los puntos finales previstos**).<br>
-
-    mosquitto_sub -h broker.mqtt.com -t "#" <br>
 
 ## 2️⃣ Weaponization (Preparación del Ataque)
 
-🛠 **Objetivo:** Crear exploits, malware y técnicas de persistencia antes de la entrega.
+🛠 **Objetivo:** Peparar las herramientas del ataque aprovechando las vulnerabilidades encontradas.
 
 ### 🔹 Estrategias:
 
-- Creo un **firmware malicioso para ESP32** (**CWE-494: Descarga de código sin verificación de integridad**).
+- **Desarrollo de firmware malicioso para ESP32:**  
 
-- Diseño un ransomware que cifre archivos del backend y bloquee configuraciones. Con este ransomware bloquearía el acceso al sistema hasta que paguen un rescate.
+- Creo un firmware alterado que ignora la verificación de integridad, permitiendo la descarga y ejecución de código arbitrario en el dispositivo (**CWE-494: Descarga de código sin verificación de integridad**).
 
-- Inyecto comandos en la API (**CWE-77: Neutralización incorrecta de elementos especiales utilizados en un comando ('Inyección de comando')**)
+- Incorporo un payload oculto activable de forma remota para ampliar el control del dispositivo.
+
+- **Inyección de comandos en la API:**  
+
+- Desarrollo un método para inyectar comandos manipulados en la API, aprovechando la deficiente neutralización de caracteres especiales y permitiendo la ejecución de órdenes no autorizadas en el backend (**CWE-77: Neutralización incorrecta de elementos especiales utilizados en un comando ('Inyección de comando')**).
+
+- **Diseño de un ransomware especializado:**  
+
+- Programo un ransomware que, una vez insertado, cifre archivos críticos del sistema y bloquee el acceso.
+
 
 ## **3️⃣ Delivery (Entrega del Ataque)**
 
-📩 **Objetivo:** Introducir el malware en la red de la víctima. 
+📩 **Objetivo:** Introducir de forma oculta los componentes maliciosos en la red de la víctima. 
 
 ### 🔹 Estrategias:
 
-- Capturo tráfico con **Wireshark** para robar credenciales. (**CWE-319: Transmisión de información confidencial en texto claro**)
+- Capturo tráfico con **Wireshark** para interceptar comunicaciones y robar credenciales en texto claro. (**CWE-319: Transmisión de información confidencial en texto claro**)
 
-- Configuro una red Wi-Fi falsa para engañar a los dispositivos para que se conecten y robar información para interceptar tráfico (**CWE-346: Error de validación de origen**).
+- Configuro una red Wi-Fi falsa para engañar a los pispositivos IoT y facilitar la inserción del firmware malicioso, aprovechando vulnerabilidades en la validación de redes (**CWE-346: Error de validación de origen**).
 
-- Subo el firmware malicioso mediante la API vulnerable (**CWE-89: Inyección de SQL**)
+- Subo el firmware malicioso a través de la API vulnerable y se envían correos electrónicos con archivos infectados a administradores, utilizando técnicas de redirección a páginas falsas (**CWE-601: Redirección de URL a un sitio no confiable ("Redirección abierta")**).
 
-- Distribuyo archivos PDF infectados a los e-mails de los administradores y pican el anzuelo, entran en una página falsa que creé (**CWE-601: Redirección de URL a un sitio no confiable ("Redirección abierta")**).
-
-- Hago una inyección de prompt para que la IA tome decisiones incorrectas.
+- Inyecto comandos en el prompt de la API de OpenAI para modificar las decisiones automatizadas en favor del ataque.
 
 
 ## 4️⃣ Exploitation (Ejecución del Ataque)  
@@ -82,9 +77,9 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 - Ejecuto el ramsonware y cifro archivos críticos del backend (**CWE-922: Almacenamiento inseguro de información confidencial**).
 
-- Elimino los respaldos accesibles desde el sistema.
+- Elimino o manipulo los respaldos no protegidos, dificultando la recuperación del sistema.
 
-- Manipulo los sensores y actuadores a través de comandos falsos y altero la base de datos para ocultar mi actividad.  
+- Envío comandos falsos y altero la base de datos para ocultar mi actividad.  
 
 - Sobrecargo el tráfico MQTT con mensajes falsos, mando muchos mensajes basura para bloquear el sistema.
 
@@ -101,15 +96,15 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 - Armo un código alternativo para mantener la manipulación del sistema (**CWE-912: Funcionalidad oculta**).
 
 ## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)  
-🎮 **Objetivo:** Controlar el sistema comprometido de manera remota.  
+🎮 **Objetivo:** Se mantiene el control remoto del sistema, incluso si la víctima intenta desconectarse de la red. 
 
 ### 🔹 Estrategias:
 
-- Implemento un **DNS Tunneling** para mantener comunicación encubierta (**CWE-912: Funcionalidad oculta**) 
+- Implemento un **DNS Tunneling** lo que permite el intercambio de comandos e información a través de solicitudes DNS, evadiendo los sistemas de monitoreo. (**CWE-912: Funcionalidad oculta**) 
 
-- Capturo eventos en el backend que indiquen intentos de mitigación.  
+- Se prevé que la víctima podría desconectarse de la red como medida de mitigación, por lo que se configuran mecanismos para que el malware restablezca automáticamente la conexión al detectarse la reconexión. 
 
-- Implemento mecanismos de auto-reinstalación en caso de detección.  
+- Implemento reportes periódicos del estado del sistema y mecanismos de auto-reinstalación que reimplantan el malware si son eliminados.
 
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)  
