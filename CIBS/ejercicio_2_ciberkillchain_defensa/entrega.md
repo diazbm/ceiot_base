@@ -66,5 +66,5 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 
 ## Diagrama de la defensa
 
-<img width="519" alt="Defensa" src="https://github.com/user-attachments/assets/ffd120b1-6913-4719-a35c-cbf19918ed05" />
+<img src="https://github.com/user-attachments/assets/ffd120b1-6913-4719-a35c-cbf19918ed05" />
 
