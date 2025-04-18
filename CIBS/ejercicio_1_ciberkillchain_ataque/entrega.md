@@ -42,7 +42,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 
 **Capa aplicativa**
- - Credenciales que me robé de github.
+ - Credenciales que me robé de GitHub.
  - Información confindencial en el HTML, por ejemplo nombres de los roles, cantidad de roles y sus permisos.
  - HTML vulnerable que renderiza código que recibe desde el backend.
  - También detecto los nombres de las entidades que se mapean en el frontend, (devices, measurments, buildings, recommendations, LLM models, etc).
@@ -57,23 +57,23 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 **Capa física y de transporte**
 
-- Creo un firmware malicioso para ser instalado en los ESP32, es casi idéntico al que descubrí robando el código fuente, solo que lo suscribo a otro tópico que no es el productivo, construyo un respaldo que se va a quedar guardado en la memoria del dispositivo pero solo se instalará en caso de emergencia.
+- Creo un **firmware malicioso** para ser instalado en los ESP32, es casi idéntico al que descubrí robando el código fuente, solo que lo suscribo a otro tópico que no es el productivo, construyo un respaldo que se va a quedar guardado en la memoria del dispositivo pero solo se instalará en caso de emergencia.
 
-- Desarrollo un endpoint GET que provee de un binary code con el instalable de mi firwmware malicioso.
+- Desarrollo un **endpoint GET** que provee de un binary code con el instalable de mi firwmware malicioso.
 
-- Desarrollo una API Para suscribirme a las novedades de mi servidor MQTT para poder ejecutar y monitorear mi ataque.
+- Desarrollo una **API** Para suscribirme a las novedades de mi servidor MQTT para poder ejecutar y monitorear mi ataque.
 
-- Creo un servidor MQTT clon del produtivo (mismo nombre) pero alojado en mi dominio (muy parecido al dominio productivo) con los mismos nombres de los tópicos y parámetros.
+- Creo un **servidor MQTT clon** del produtivo (mismo nombre) pero alojado en mi dominio (muy parecido al dominio productivo) con los mismos nombres de los tópicos y parámetros.
 
-- Creo un script para automatizar tareas de climatización durante las etapas preliminares del ataque, consumiendo los parámetros reales que el backend víctima postea sobre MQTT.
+- Creo un **script** para automatizar tareas de climatización durante las etapas preliminares del ataque, consumiendo los parámetros reales que el backend víctima postea sobre MQTT.
 
 **Capa aplicativa**  
 
-- Armo un email de phising para enviar a los administradores del sistema.
+- Armo un **e-mail de phishing** para enviar a los administradores del sistema.
 
-- Creo un malware para conectarse a los servidores del sistema de forma remota desde las computadoras de los admins.
+- Creo un **malware** para conectarme a los servidores del sistema de forma remota desde las computadoras de los admins.
 
-- Desarrollo un ransomware para instalar en el servidor backend y cifrar todos los datos.
+- Desarrollo un **ransomware** para instalar en el servidor backend y cifrar todos los datos.
 
 
 ## **3️⃣ Delivery (Entrega del Ataque)**
@@ -84,13 +84,13 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 **Capa física y de transporte**
 
-- Por medio de requests maliciosas al  servidor MQTT real logro ejecutar un GET desde el ESP32 para descargar el firmware (Solo afecta a los ESP32 que reciben peticiones para el actuador)
+- Por medio de requests maliciosas al servidor MQTT real logro ejecutar un GET desde el ESP32 para descargar el firmware (Solo afecta a los ESP32 que reciben peticiones para el actuador)
 
-- Con el firmware guardado en el dispositivo y utilizando estrategias de OTA (Over the air) ejecuto una instalación remota del firmware vulnerado, (Puedo ejecutar comandos remotamente inyectando requests en el servidor MQTT productivo)
+- Con el firmware guardado en el dispositivo y utilizando estrategias de OTA (Over the air) ejecuto una instalación remota del firmware vulnerado, (Puedo ejecutar comandos remotamente inyectando requests en el servidor MQTT productivo).
 
 **Capa aplicativa** 
 
-- Una vez que alguno de los administradores acceda a los links maliciosos del email de phishing, automáticamente el malware se instalará en su computadora y establecerá una conexión oculta con el servidor productivo.
+- Una vez que alguno de los administradores acceda a los links maliciosos del e-mail de phishing, automáticamente el malware se instalará en su computadora y establecerá una conexión oculta con el servidor productivo.
 
 - Desde el malware se ejecuta un comando CURL GET en el servidor productivo para descargarse el ransomware.
 
@@ -103,7 +103,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 **Capa física y de transporte**
 
-- Desde postman y conectado al servidor MQTT fake posteo mensajes para ejecutar acciones en los ESP32 de forma sutil, moniteo que los cambios hayan sido efectivos mirando los mensajes que llegan en el tópico productivo (encender luces, cambiar la temperatura, etc).
+- Desde postman y conectado al servidor MQTT fake posteo mensajes para ejecutar acciones en los ESP32 de forma sutil, monitoreo que los cambios hayan sido efectivos mirando los mensajes que llegan en el tópico productivo (encender luces, cambiar la temperatura, etc).
 
 **Capa aplicativa** 
 
@@ -124,7 +124,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 **Capa aplicativa** 
 
-- Me aseguro que el malware no sea detectado dentro de la computadora del usuario administrador ejecutando al ataque cuando la pantalla esté bloqueada (el usuario no está usando la máquina)
+- Me aseguro que el malware no sea detectado dentro de la computadora del usuario administrador ejecutando al ataque cuando la pantalla esté bloqueada (el usuario no está usando la máquina).
 
 
 ## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)  
@@ -140,7 +140,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 **Capa aplicativa** 
 
-- Me conecto periódicamente a través del tunel DNS para controlar y monitorear el ataque. (CWE-912: Funcionalidad oculta)
+- Me conecto periódicamente a través del tunel DNS para controlar y monitorear el ataque.
 
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)  
