@@ -50,8 +50,7 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 
 ## 2️⃣ Weaponization (Preparación del Ataque)
 
-- **Medida de Detección:**
-  - **Código:** **D3 – Análisis del contenido de archivos.** Monitoreo continuo del tráfico del servidor MQTT.
+- **Medida de Detección:** **D3 – Análisis del contenido de archivos.** Monitoreo continuo del tráfico del servidor MQTT.
 
 - **Medida de Mitigación:** tener toda la capa de transporte y comunicación segurizada con SSL y enviar los datos hasheados.
 
