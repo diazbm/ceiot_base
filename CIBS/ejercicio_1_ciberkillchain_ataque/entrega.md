@@ -161,7 +161,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
   - Me quedo con las credenciales de acceso de openAI que son del usuario, sobre este tema no le comento nada ya que le sacaré provecho de otra manera.
 
 
----- **Diagrama de la ciber kill chain (modo ataque)**
+## **Diagrama de la ciber kill chain (modo ataque)**
 
 <img src="/ejercicio_1_ciberkillchain_ataque/imagenes/Ataque.png">
 
