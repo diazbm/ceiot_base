@@ -63,3 +63,7 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 - **Medida de Detección:** **D3 – Análisis del contenido de archivos.** Mediante un pipeline automatizado en GitHub se hace un análisis de código estático de todo el sourcecode cada vez que se quiere incorporar un nuevo feature o fix, si se detecta alguna vulnerabilidad no se permite mergear el código
 
 - **Medida de Mitigación:** **Código:** **M1056 – Pre-compromiso.** Dificultar el reconocimiento o el desarrollo de recursos por parte del adversario. Limitar la información expuesta públicamente y la superficie visible al atacante usando técnicas de obfuscado en el frontend, uso de server-side rendering, evitar usar local storage, implementar token csrf en todas las llamadas del cliente al servidor.
+
+## Diagrama de la defensa
+
+<img src="/CIBS/ejercicio_1_ciberkillchain_ataque/Defensa.png">
