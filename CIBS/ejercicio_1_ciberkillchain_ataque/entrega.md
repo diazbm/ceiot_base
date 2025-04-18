@@ -84,9 +84,9 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 **Capa física y de transporte**
 
-- Por medio de requests maliciosas al servidor MQTT real logro ejecutar un GET desde el ESP32 para descargar el firmware (Solo afecta a los ESP32 que reciben peticiones para el actuador)
+- Por medio de requests maliciosas al servidor MQTT real logro ejecutar un GET desde el ESP32 para descargar el firmware (solo afecta a los ESP32 que reciben peticiones para el actuador)
 
-- Con el firmware guardado en el dispositivo y utilizando estrategias de OTA (Over the air) ejecuto una instalación remota del firmware vulnerado, (Puedo ejecutar comandos remotamente inyectando requests en el servidor MQTT productivo).
+- Con el firmware guardado en el dispositivo y utilizando estrategias de OTA (Over the air) ejecuto una instalación remota del firmware vulnerado, (puedo ejecutar comandos remotamente inyectando requests en el servidor MQTT productivo).
 
 **Capa aplicativa** 
 
