@@ -16,84 +16,50 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)
 
-- **Medida de Detección:**establezco un dashboard que permita monitorizar los cambios en los parámetros de climatización e iluminación y arroje alertas en caso de mediciones inusuales.
+- **Medida de Detección:**tengo monitores en DataDog y NewRelic sobre todo el sistema que me permiten detectar anomalías en tiempos de respuesta y desviaciones en el tráfico.
 
-- **Medida de Mitigación:**
-  - **Código:** **M1053 – Copia de seguridad de datos**  establecer y reforzar políticas de respaldo de datos y configuraciones. Esta medida limita el impacto de la alteración o extorsión al asegurar la posibilidad de restaurar el sistema a un estado legítimo.  
-    *(Medida que ayuda a minimizar el daño ante extorsión o sabotaje.)*
-
+- **Medida de Mitigación:**al detectar vulnerabilidades en el sistema y corroborar la explotación de alguna de ellas, aviso a mis clientes que sus sistemas de gestión de energía pasan a modo manual y desde mi consola de AWS hago un shut down del servidor EC2 y MQTT (saco a los clientes del medio) y recupero los ESP32 para analizarlos.
 
 
 ## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)
 
-- **Medida de Detección:**
-  - **Código:** **D3 - RTSD – Detección de sesión de terminal remota**  https://d3fend.mitre.org/technique/d3f:RemoteTerminalSessionDetection/ <br>
-    **Descripción:** analizar el tráfico DNS y otros protocolos para detectar patrones anómalos, como DNS Tunneling, que pueden indicar la existencia de canales C2 encubiertos.  
-    *(Técnica utilizada para identificar comunicaciones remotas maliciosas.)*
+- **Medida de Detección:** **Código:** **D3 - RTSD – Detección de sesión de terminal remota.** Tengo un monitoreo activo de patrones de sesión que me alertan cuando hay conexiones remotas no autorizadas en mi servidor.
 
-- **Medida de Mitigación:**
-  - **Código:** **M1037 – Filtrar el tráfico de red**  https://attack.mitre.org/mitigations/M1037/#:~:text=Filter%20Network%20Traffic <br>
-    **Descripción:** implementar filtros en firewalls y dispositivos perimetrales para bloquear tráfico hacia dominios e IPs sospechosos, interrumpiendo comunicaciones de control remoto.  
-    *(Mitigación orientada a interrumpir la comunicación no autorizada.)*
-
-
+- **Medida de Mitigación:** tengo firewalls en el servidor que cortan las conexiones sospechosas, solo tengo habilitada una whitelist de direcciones IP desde las que me puedo conectar al servidor. 
 
 ## 5️⃣ Installation (Persistencia en el Sistema)
 
 - **Medida de Detección:**
-  - **Código:** **D3 – Monitoreo de la integridad de los archivos**  https://misp-galaxy.org/mitre-d3fend/#:~:text=File%20Integrity%20Monitoring <br>
-    **Descripción:** emplear soluciones que monitorizan los cambios en archivos y configuraciones críticas, permitiendo detectar modificaciones inesperadas que indiquen la instalación de componentes maliciosos.  
-    *(Detección de alteraciones en la integridad de los archivos del sistema.)*
+  - **Código:** **D3 – Monitoreo de la integridad de los archivos**. Monitoreo la integridad de los archivos, ante algún cambio disparo una alerta. 
 
-- **Medida de Mitigación:**
-  - **Código:** **M1033 - Limitar la instalación de software**  https://attack.mitre.org/mitigations/M1033/#:~:text=Block%20users%20or%20groups%20from,installing%20unapproved%20software <br>
-    **Descripción:** bloquear que usuarios o grupos instalen software no aprobado. Restringiendo la instalación a aplicaciones de confianza se dificulta que el adversario agregue herramientas de persistencia en los sistemas.
-
+- **Medida de Mitigación:** **Código:** **M1033 - Limitar la instalación de software.** Dentro de mis sistemas (esp32, backend y frontend) implemento una restricción de origenes para poder ejecutar comandos GET o de instalación de software. 
 
 
 ## 4️⃣ Exploitation (Ejecución del Ataque)
 
-- **Medida de Detección:**
-  - **Código:** **D3 – MBT - Seguimiento de límites de memoria**  https://misp-galaxy.org/mitre-d3fend/#:~:text=Memory%20Boundary%20Tracking <br>
-    **Descripción:** analizar la pila de llamadas (call stack) para identificar direcciones de retorno que apunten a ubicaciones de memoria inesperadas​, lo cual ayuda a detectar exploits de desbordamiento de memoria u otras técnicas de explotación en tiempo de ejecución.
+- **Medida de Detección:**implemento alertas ante anomalías entre mediciones y actuaciones, utilizo la base de datos con históricos y tambien comparo contra curvas de semana anterior de mediciones para levantar anomalías.
 
-- **Medida de Mitigación:**
-  - **Código:** **M1050 - Protección contra exploits**  https://attack.mitre.org/mitigations/M1050/#:~:text=Exploit%20Protection <br>
-    **Descripción:** usar capacidades de protección que detecten y bloqueen condiciones indicativas de que se está intentando explotar una vulnerabilidad de software​. 
+- **Medida de Mitigación:** ante anomalías en las mediciones los sistemas alertan y después de un análisis se pasan a modo manual y se aislan.
 
 
 
 ## 3️⃣ Delivery (Entrega del Ataque)
 
-- **Medida de Detección:**
-  - **Código:** **D3 – SRA - Análisis de la reputación del remitente**  https://misp-galaxy.org/mitre-d3fend/#:~:text=Sender%20Reputation%20Analysis <br>
-    **Descripción:** determinar la reputación del remitente basado en la información asociada a un mensaje. Identificar emails de phishing u otros vectores de entrega maliciosos mediante la evaluación de si el origen es confiable.
+- **Medida de Detección:** para evitar intrusiones configuro alertas que se disparen ante intentos de violación de la política de restricción de orígenes para la instalación de software en todas las capas.
 
-- **Medida de Mitigación:**
-  - **Código:** **M1017 – Capacitación de usuarios**  https://attack.mitre.org/mitigations/M1017/#:~:text=Train%20users%20to%20be%20aware,techniques%20that%20involve%20user%20interaction <br>
-    **Descripción:** capacitar a los usuarios para que estén conscientes de intentos de acceso o manipulación por parte de un adversario, reduciendo el riesgo de éxito de spearphishing, ingeniería social u otras técnicas que dependen de la interacción del usuario​, hacer constantemente pruebas de phishing sobre los usuarios en las cuales los que accedan a los sitios maliciosos de prueba tendrán que cambiar sus credenciales semanalmente y re-hacer las capacitaciones.
-
+- **Medida de Mitigación:** **M1017 – Capacitación de usuarios.** Ya que los sistemas no pueden instalar software de origenes no autorizados, capacito a mis colaboradores contra phishing y además en esta capacitación les pido que se instalen y configuren crowdstrike falcon.
 
 
 ## 2️⃣ Weaponization (Preparación del Ataque)
 
 - **Medida de Detección:**
-  - **Código:** **D3 – Análisis del contenido de archivos**  https://misp-galaxy.org/mitre-d3fend/#:~:text=File%20Content%20Analysis <br>
-    **Descripción:** analizar el contenido de archivos (firmware, scripts y payloads) en busca de firmas o indicadores asociados a código malicioso, permitiendo detectar intentos de preparar componentes armados.  
-    *(Detección preventiva para identificar weaponization mediante análisis estático.)*
+  - **Código:** **D3 – Análisis del contenido de archivos.** Monitoreo continuo del tráfico del servidor MQTT.
 
-- **Medida de Mitigación:**
-  - **Código:** **M1049 – Antivirus/Antimalware**  https://attack.mitre.org/mitigations/M1049/#:~:text=Antivirus%2FAntimalware <br>
-    **Descripción:** utilizar software antimalware para buscar mediante firmas o heurísticas la presencia de software malicioso. Las soluciones antivirus pueden detectar y poner en cuarentena archivos sospechosos automáticamente, impidiendo que malware ya preparado (weaponized) se ejecute en el sistema.
-
+- **Medida de Mitigación:** tener toda la capa de transporte y comunicación segurizada con SSL y enviar los datos hasheados.
 
 
 ## 1️⃣ Reconnaissance (Reconocimiento)
 
-- **Medida de Detección:**
-  - **Código:** **D3 - ISVA – Análisis del volumen de sesiones entrantes**  https://misp-galaxy.org/mitre-d3fend/#:~:text=Inbound%20Session%20Volume%20Analysis <br>
-    **Descripción:** analizar el volumen de sesiones de red o intentos de conexión entrantes. Un número o frecuencia inusual de intentos de conexión hacia sistemas internos puede delatar actividades de reconocimiento (escaneo de puertos, enumeración de servicios) realizadas por un adversario.
+- **Medida de Detección:** **D3 – Análisis del contenido de archivos.** Mediante un pipeline automatizado en GitHub se hace un análisis de código estático de todo el sourcecode cada vez que se quiere incorporar un nuevo feature o fix, si se detecta alguna vulnerabilidad no se permite mergear el código
 
-- **Medida de Mitigación:**
-  - **Código:** **M1056 – Pre-compromiso**  https://attack.mitre.org/mitigations/M1056/#:~:text=This%20category%20is%20used%20for,Reconnaissance%20and%20Resource%20Development%20techniques <br>
-    **Descripción:** dificultar el reconocimiento o el desarrollo de recursos por parte del adversario. Limitar la información expuesta públicamente y la superficie visible al atacante usando técnicas de obfuscado en el frontend, uso de server-side rendering, evitar usar local storage, implementar token csrf en todas las llamadas del cliente al servidor.
+- **Medida de Mitigación:** **Código:** **M1056 – Pre-compromiso.** Dificultar el reconocimiento o el desarrollo de recursos por parte del adversario. Limitar la información expuesta públicamente y la superficie visible al atacante usando técnicas de obfuscado en el frontend, uso de server-side rendering, evitar usar local storage, implementar token csrf en todas las llamadas del cliente al servidor.
