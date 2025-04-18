@@ -163,6 +163,6 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 ## **Diagrama de la ciber kill chain (modo ataque)**
 
-<img src="/ejercicio_1_ciberkillchain_ataque/imagenes/Ataque.png">
+<img src="/CIBS/ejercicio_1_ciberkillchain_ataque/imagenes/Ataque.png">
 
 
