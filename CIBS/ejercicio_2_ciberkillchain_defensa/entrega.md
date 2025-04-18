@@ -16,14 +16,10 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 
 ## 7️⃣ Actions on Objectives (Extorsión y Sabotaje)
 
-- **Medida de Detección:**
-  - **Código:** **D3 – Análisis de transferencia de datos de usuario**  https://d3fend.mitre.org/technique/d3f:UserDataTransferAnalysis/ <br>
-    **Descripción:** implementar la monitorización continua en busca de comportamientos inusuales en activos críticos, por ejemplo, cambios súbitos en los parámetros de climatización e iluminación.  
-    *(Basado en técnicas de detección de anomalías que permiten identificar desviaciones en el comportamiento esperado del sistema.)*
+- **Medida de Detección:**establezco un dashboard que permita monitorizar los cambios en los parámetros de climatización e iluminación y arroje alertas en caso de mediciones inusuales.
 
 - **Medida de Mitigación:**
-  - **Código:** **M1053 – Copia de seguridad de datos**  https://attack.mitre.org/mitigations/M1053/#:~:text=Take%20and%20store%20data%20backups,corporate%20network%20to%20prevent%20compromise <br>
-    **Descripción:** establecer y reforzar políticas de respaldo de datos y configuraciones. Esta medida limita el impacto de la alteración o extorsión al asegurar la posibilidad de restaurar el sistema a un estado legítimo.  
+  - **Código:** **M1053 – Copia de seguridad de datos**  establecer y reforzar políticas de respaldo de datos y configuraciones. Esta medida limita el impacto de la alteración o extorsión al asegurar la posibilidad de restaurar el sistema a un estado legítimo.  
     *(Medida que ayuda a minimizar el daño ante extorsión o sabotaje.)*
 
 
