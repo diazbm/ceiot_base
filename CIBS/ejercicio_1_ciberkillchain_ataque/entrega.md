@@ -150,7 +150,7 @@ Comprometer el sistema de gestión energética, deshabilitar los controles de cl
 
 - **Secuestro del Sistema**
 
-  - Envío mensaje a la interfaz de usuario indicando que el sistema está comprometido.  
+  - Desde el servidor hago una inyección de HTML en los requests del frontend para que muestren un mensaje en el sistema diciendo que el sistema está comprometido.   
 
 - **Prueba de Control**
   - Le demuestro al dueño que tengo el control apagando y encendiendo luces o aire acondicionado.
