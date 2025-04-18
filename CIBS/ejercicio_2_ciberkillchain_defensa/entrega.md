@@ -23,7 +23,7 @@ Desarrollar la defensa en función del ataque planteado en orden inverso, mencio
 
 ## 6️⃣ Command & Control (C2 – Gestión Remota del Ataque)
 
-- **Medida de Detección:** **Código:** **D3 - RTSD – Detección de sesión de terminal remota.** Monitoreo activo de patrones de sesión que me alertan cuando hay conexiones remotas no autorizadas en mi servidor.
+- **Medida de Detección:** **D3 - RTSD – Detección de sesión de terminal remota.** Monitoreo activo de patrones de sesión que me alertan cuando hay conexiones remotas no autorizadas en mi servidor.
 
 - **Medida de Mitigación:** firewalls en el servidor que cortan las conexiones sospechosas, solo tengo habilitada una whitelist de direcciones IP desde las que me puedo conectar al servidor. 
 
